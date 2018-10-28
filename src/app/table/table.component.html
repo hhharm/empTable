@@ -1,0 +1,20 @@
+<h1>Список сотрудников</h1>
+<button class="add_button">Добавить</button>
+<div>
+  <!--- this should be right after button. It is needed because 'button' is float and therefore browser ingores it's size
+    when it depicts elements. There is 'clear: both' in this div and it helps. Magic :)-->
+</div>
+<table>
+  <thead>
+    <th class="table-fio">ФИО</th>
+    <th class="table-position">Должность</th>
+    <th class="table-bdate">Дата рождения</th>
+    <th class="table-status">Статус</th>
+  </thead>
+  <tr *ngFor="let employee of employees">
+    <td class="table-fio">{{employee.fullName}}</td>
+    <td class="table-position">{{employee.position}}</td>
+    <td class="table-bdate">{{employee.birthDate | date:"dd.MM.yyyy"}}</td>
+    <td class="table-status">{{employee.status}}</td>
+  </tr>
+</table>

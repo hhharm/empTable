@@ -1,0 +1,58 @@
+h1 {
+  text-align: center;
+}
+
+.add_button {
+  width: 7em;
+  height: 2em;
+  float: right;
+  font-size: 100%;
+  border-radius: 10%;
+  background: rgba(151, 238, 155, 0.68);
+}
+
+.add_button+div {
+  clear: both;
+  width: 100%;
+  content: '';
+  display: block;
+}
+
+table {
+  margin: 20px 2% 0;
+  width: 95%;
+  font-size: 1em;
+  text-align: left;
+  background-color: rgb(239, 242, 251);
+  border: 3px solid rgb(31, 13, 189);
+  border-collapse: collapse;
+}
+
+th {
+  text-align: center;
+  border-left: 2px solid rgb(162, 161, 246);
+  padding: 10px;
+}
+
+td {
+  border-left: 2px solid rgb(162, 161, 246);
+  border-top: 3px solid rgb(162, 161, 246);
+  padding: 0 10px;
+}
+
+table td:first-child,
+table td:last-child {
+  border-bottom-left-radius: 20px;
+}
+.table-fio {
+  width: 40%;
+}
+
+.table-position {
+  width: 30%;
+}
+
+.table-bdate,
+.table-status {
+  width: 15%;
+}
