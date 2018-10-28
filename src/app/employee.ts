@@ -1,5 +1,3 @@
-import { InternalNgModuleRef } from "@angular/core/src/linker/ng_module_factory";
-
 export class Employee {
     id: number; //inner field
     fullName: string; //first name, middle name, last name

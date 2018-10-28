@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from '../employee'
-import { EMPL_LIST } from '../mock_employees'
+
+import { Employee } from '../employee';
+import { EmployeeService } from '../employee.service'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-table',
@@ -8,10 +10,19 @@ import { EMPL_LIST } from '../mock_employees'
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-  employees = EMPL_LIST;
-  constructor() { }
+  constructor(private employeeService: EmployeeService) { }
+
+  employees:Employee[];
+
+  getEmployees() {
+    //QUESTION: what does the (employees => this.emploees = employees) mean?
+    //this is copy-paste from tour of heroes, but i don't get it :/
+    this.employeeService.getEmployees()
+      .subscribe(employees => this.employees = employees); 
+  }
 
   ngOnInit() {
+    this.getEmployees();
   }
 
 }
