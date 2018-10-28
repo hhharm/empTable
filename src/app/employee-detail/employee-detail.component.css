@@ -1,0 +1,73 @@
+.container {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 175px auto auto auto;
+    grid-template-areas: 
+    "avatar info info info" 
+    "avatar info info info" 
+    "avatar info info info" 
+    "chgb   info info info" 
+    "comm comm comm comm"
+    "empty empty empty buttons";
+}
+
+.avatar, .calendar {
+    border:1px solid #b6b1e5;
+    padding: 1px;
+}
+
+.info, button, .img, .avatar, .calendar {
+    display: inline-block;
+}
+
+.img {
+    width: 171px;
+    height: 225px;
+    background-color: #9E9E9E;
+    grid-area: avatar;
+}
+
+.change_av {
+    grid-area: chgb;
+    width: auto;
+    margin-left: 2px;
+}
+
+.info {
+    padding: 10px;
+    grid-area: info;
+}
+
+.detail {
+    font-size: 1.5em;
+}
+
+.fullname {
+    color: midnightblue;
+}
+
+.cal_button {
+    width: auto;
+    height: auto;
+    font-size: 50%;
+}
+.label {
+    font-style: italic;
+}
+
+.comment {
+    grid-area: comm;
+}
+.comment_text textarea {
+    width:100%;
+    height: 3em;
+}
+
+footer {
+    text-align: right;
+    padding: 10px;
+    grid-area: buttons;
+}
+footer button {
+    margin: 0 0 0 5px;
+}

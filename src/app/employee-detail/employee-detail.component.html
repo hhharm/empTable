@@ -1,0 +1,43 @@
+<h1>Карточка сотрудника</h1>
+<div class="container comp">
+    <div class="avatar">
+        <div class="img">
+            <!-- there will be image-->
+       </div>
+       <button class="change_av">Изменить фото</button>
+    </div>
+    <div class="info">
+        <div class="detail">
+            <span class="label">Имя: </span>
+            <input class="fullname" [(ngModel)]="employee.fullName" placeholder="Имя сотрудника">
+        </div>
+        <div class="detail">
+          <span class="label">Статус: </span>
+          status
+        </div>
+        <div class="detail">
+          <span class="label">Должность: </span>
+          <input [(ngModel)]="employee.position" placeholder="Должность сотрудника">
+        </div>
+        <div class="detail">
+          <span class="label">Дата рождения:</span>
+          <div class="calendar">
+              {{employee.birthDate | date:"dd.MM.yyyy"}}
+              <button class="cal_button">...</button>
+          </div>
+        </div>
+        
+    </div>
+    <div class="comment">
+      <span class="label">Комментарий: </span>
+      <div class="comment_text">        
+          <textarea [(ngModel)]="employee.comment">
+            </textarea>
+      </div>
+    </div>
+    
+<footer>
+    <button (click)="goBack()">Назад</button>
+    <button>Сохранить</button>
+</footer> 
+</div>

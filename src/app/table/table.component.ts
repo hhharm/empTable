@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service'
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-table',
