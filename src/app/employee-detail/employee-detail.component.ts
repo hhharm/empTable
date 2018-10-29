@@ -11,13 +11,25 @@ import { Employee } from '../employee'
 })
 export class EmployeeDetailComponent implements OnInit {
   employee: Employee;
+  positions: string[];
 
   constructor(private location: Location,
     private route: ActivatedRoute,
     private employeeService: EmployeeService) { }
 
+    submitted = false;
+
+  onSubmit() { this.submitted = true; }
+
   ngOnInit() {
     this.getEmployee();
+    this.getPositionsList();
+  }
+
+
+  getPositionsList(): void {
+    this.employeeService.getPositionsList() 
+    .subscribe(positions => this.positions = positions); 
   }
 
   getEmployee(): void {
@@ -28,5 +40,10 @@ export class EmployeeDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  save(): void {
+    this.employeeService.updateEmployee(this.employee)
+      .subscribe(() => this.goBack());
   }
 }

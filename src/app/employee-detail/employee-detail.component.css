@@ -1,73 +1,105 @@
+.comp {
+  padding: 5px;
+  min-width: 461px;
+  max-width: 725px;
+  margin: 0 auto;
+}
+
 .container {
-    padding: 10px;
-    display: grid;
-    grid-template-columns: 175px auto auto auto;
-    grid-template-areas: 
-    "avatar info info info" 
-    "avatar info info info" 
-    "avatar info info info" 
-    "chgb   info info info" 
-    "comm comm comm comm"
-    "empty empty empty buttons";
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "info info info avatar"
+    "info info info  avatar"
+    "info info info  avatar"
+    "info info info  chgb"
+    "comm comm comm comm "
+    "buttons buttons buttons buttons";
+  overflow: hidden;
 }
 
-.avatar, .calendar {
-    border:1px solid #b6b1e5;
-    padding: 1px;
+.avatar,
+.calendar {
+  border: 1px solid #b6b1e5;
+  padding: 1px;
 }
 
-.info, button, .img, .avatar, .calendar {
-    display: inline-block;
+.info,
+.img,
+.avatar,
+.calendar,
+.actions {
+  display: inline-block;
+}
+
+.img,
+.change_av {
+  width: 170px;
 }
 
 .img {
-    width: 171px;
-    height: 225px;
-    background-color: #9E9E9E;
-    grid-area: avatar;
+  height: 120px;
+  background-color: #9E9E9E;
+  grid-area: avatar;
 }
 
 .change_av {
-    grid-area: chgb;
-    width: auto;
-    margin-left: 2px;
+  grid-area: chgb;
+  height: auto;
 }
 
 .info {
-    padding: 10px;
-    grid-area: info;
+  padding: 10px;
+  grid-area: info;
 }
 
 .detail {
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 .fullname {
-    color: midnightblue;
+  color: midnightblue;
 }
 
 .cal_button {
-    width: auto;
-    height: auto;
-    font-size: 50%;
+  width: auto;
+  height: auto;
+  font-size: 50%;
 }
-.label {
-    font-style: italic;
+
+label {
+  font-style: italic;
+}
+
+select {
+  background-color: none;
 }
 
 .comment {
-    grid-area: comm;
-}
-.comment_text textarea {
-    width:100%;
-    height: 3em;
+  padding: 10px;
+  margin-top: 10px;
+  grid-area: comm;
 }
 
-footer {
-    text-align: right;
-    padding: 10px;
-    grid-area: buttons;
+.comment_text textarea {
+  height: 3em;
+  resize: vertical;
+  width: 90%;
+  overflow: hidden;
 }
-footer button {
-    margin: 0 0 0 5px;
+
+.actions {
+  grid-area: buttons;
+}
+
+.actions button {
+  margin: 10px 0 0 5px;
+}
+
+.ng-invalid:not(form) {
+  border-bottom: 2px solid red;
+}
+
+.ng-invalid:not(form)::after {
+  content: "Имя не может быть пустым";
 }

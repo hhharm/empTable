@@ -4,6 +4,6 @@ export class Employee {
     position: string; 
     birthDate: Date;
     status: string; //0 is "fired", 1 is "working at the moment"
-    commentary: string; //some additional info about the employee. It is optional
-    photo: string; //there should be url to photo
+    commentary?: string; //some additional info about the employee. It is optional
+    photo?: string; //there should be url to photo
 }

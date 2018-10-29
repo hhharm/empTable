@@ -1,43 +1,50 @@
 <h1>Карточка сотрудника</h1>
-<div class="container comp">
-    <div class="avatar">
+<div class="comp">
+  <form #employeeForm="ngForm" class="container">
         <div class="img">
-            <!-- there will be image-->
-       </div>
-       <button class="change_av">Изменить фото</button>
-    </div>
+          <!-- there will be image-->
+        </div>
+        <button class="change_av">Изменить фото</button>
     <div class="info">
-        <div class="detail">
-            <span class="label">Имя: </span>
-            <input class="fullname" [(ngModel)]="employee.fullName" placeholder="Имя сотрудника">
+      <div class="detail">
+        <label>Имя: </label>
+        <input required class="fullname" name="name" [(ngModel)]="employee.fullName" placeholder="Имя сотрудника">
+      </div>
+      <div class="detail">
+        <label>Статус: </label>
+        <select required [value]="employee.status"  name="status" [(ngModel)]="employee.status" 
+            name="positions" onload="chooseStatus()">
+          <option>работает</option>
+          <option>уволен</option>
+        </select>
+      </div>
+      <div class="detail">
+        <label>Должность: </label>
+        <select required [(ngModel)]="employee.position" [value]="employee.position" name="position">
+          <option *ngFor="let position of positions" [value]="position">{{position}}</option>
+        </select>
+      </div>
+      <div class="detail">
+        <label>Дата рождения:</label>
+        <div class="calendar">
+          {{employee.birthDate | date:"dd.MM.yyyy"}}
+          <button class="cal_button">...</button>
         </div>
-        <div class="detail">
-          <span class="label">Статус: </span>
-          status
-        </div>
-        <div class="detail">
-          <span class="label">Должность: </span>
-          <input [(ngModel)]="employee.position" placeholder="Должность сотрудника">
-        </div>
-        <div class="detail">
-          <span class="label">Дата рождения:</span>
-          <div class="calendar">
-              {{employee.birthDate | date:"dd.MM.yyyy"}}
-              <button class="cal_button">...</button>
-          </div>
-        </div>
-        
+      </div>
+
     </div>
     <div class="comment">
-      <span class="label">Комментарий: </span>
-      <div class="comment_text">        
-          <textarea [(ngModel)]="employee.comment">
+      <label>Комментарий: </label>
+      <div class="comment_text">
+        <textarea [(ngModel)]="employee.commentary" placeholder="" name="comment">
             </textarea>
       </div>
     </div>
-    
-<footer>
-    <button (click)="goBack()">Назад</button>
-    <button>Сохранить</button>
-</footer> 
+
+    <div class="actions">
+      <button (click)="goBack()">Назад</button>
+      <button type="submit" (click)="save()" [disabled]="!employeeForm.valid">Сохранить</button>
+    </div>
+
+  </form>
 </div>

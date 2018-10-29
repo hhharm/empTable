@@ -5,11 +5,13 @@ import { Employee } from './employee';
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    const employees = [
-      {id: 1, fullName: 'А А А', position: 'cleaner', birthDate: new Date(1995, 11, 17),
-    status: 'работает', commentary: '', photo: ''}
+    const employees: Employee[] = [
+      {id: 1, fullName: 'Иванов Пётр Васильевич', position: 'Уборщик', birthDate: new Date(1995, 11, 17),
+    status: 'уволен', commentary: '', photo: ''}
     ];
-    return {employees};
+
+    const positions  = ["Водитель", "Разработчик", "Руководитель", "Тестировщик", "Уборщик"];
+    return {employees, positions};
   }
 
   // Overrides the genId method to ensure that an employee always has an id.
