@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Employee } from './employee'
 import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -34,21 +34,21 @@ export class EmployeeService {
     };
   }
 
-  public getPositionsList(): Observable<string[]> {
+   getPositionsList(): Observable<string[]> {
     return this.http.get<string[]>(this.positionsUrl)
     .pipe (
       catchError(this.handleError('getPositionsList',[]))
     );
   }
 
-  public getEmployees(): Observable<Employee[]> {
+   getEmployees(): Observable<Employee[]> {
     return this.http.get<Employee[]>(this.tableUrl)
       .pipe(
         catchError(this.handleError('getEmployees', []))
       );
   }
 
-  public getEmployee(id: number): Observable<Employee> {
+   getEmployee(id: number): Observable<Employee> {
     const url = `${this.tableUrl}/${id}`;
     return this.http.get<Employee>(url)
       .pipe(
@@ -56,9 +56,15 @@ export class EmployeeService {
       );
   }
 
-  public updateEmployee (employee: Employee): Observable<any> {
+  updateEmployee (employee: Employee): Observable<Employee> {
     return this.http.put(this.tableUrl, employee, httpOptions).pipe(
       catchError(this.handleError<any>('updateEmployee'))
+    );
+  }
+
+  addEmployee (employee: Employee): Observable<Employee> {
+    return this.http.post<Employee>(this.tableUrl, employee, httpOptions).pipe(      
+      catchError(this.handleError<Employee>('addEmployee'))
     );
   }
 }

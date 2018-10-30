@@ -91,6 +91,3 @@ label {
   margin: 10px 0 0 5px;
 }
 
-.ng-invalid:not(form) {
-  border-bottom: 2px solid red;
-}

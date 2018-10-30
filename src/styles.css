@@ -47,3 +47,8 @@ input {
 .calendar {
   cursor: pointer;
 }
+
+
+.ng-touched.ng-invalid:not(form) {
+  border-bottom: 2px solid red;
+}

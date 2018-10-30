@@ -14,12 +14,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { PopUpComponent } from './pop-up/pop-up.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableComponent,
-    EmployeeDetailComponent
+    EmployeeDetailComponent,
+    PopUpComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +32,9 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     AppRoutingModule,
     FormsModule,
     BsDatepickerModule.forRoot()
+  ],
+  entryComponents:[
+    PopUpComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
