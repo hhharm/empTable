@@ -1,35 +1,34 @@
 <h1>Карточка сотрудника</h1>
 <div class="comp">
   <form #employeeForm="ngForm" class="container">
-        <div class="img">
-          <!-- there will be image-->
-        </div>
-        <button class="change_av">Изменить фото</button>
+    <div class="img">
+      <!-- there will be image-->
+    </div>
+    <button class="control change_av">Изменить фото</button>
     <div class="info">
       <div class="detail">
         <label>Имя: </label>
-        <input required class="fullname" name="name" [(ngModel)]="employee.fullName" placeholder="Имя сотрудника">
+        <input required autocomplete=off class="fullname" name="name" [(ngModel)]="employee.fullName" placeholder="Имя сотрудника">
       </div>
       <div class="detail">
         <label>Статус: </label>
-        <select required [value]="employee.status"  name="status" [(ngModel)]="employee.status" 
-            name="positions" onload="chooseStatus()">
+        <select required [value]="employee.status" name="status" [(ngModel)]="employee.status" name="positions">
           <option>работает</option>
           <option>уволен</option>
         </select>
       </div>
       <div class="detail">
         <label>Должность: </label>
-        <select required [(ngModel)]="employee.position" [value]="employee.position" name="position">
+        <select required [(ngModel)]="employee.position" value="employee.position" name="position">
           <option *ngFor="let position of positions" [value]="position">{{position}}</option>
         </select>
       </div>
       <div class="detail">
         <label>Дата рождения:</label>
-        <div class="calendar">
-          {{employee.birthDate | date:"dd.MM.yyyy"}}
-          <button class="cal_button">...</button>
-        </div>
+          <input class="calendar" [minDate]="minDate" [maxDate]="maxDate" autocomplete=off
+           bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', showWeekNumbers: false, 
+           containerClass: 'theme-dark-blue' }"
+            [(ngModel)]="employee.birthDate" value='{{employee.birthDate | date: "dd.MM.yyyy"}}' name="calendar">
       </div>
 
     </div>
@@ -42,8 +41,8 @@
     </div>
 
     <div class="actions">
-      <button (click)="goBack()">Назад</button>
-      <button type="submit" (click)="save()" [disabled]="!employeeForm.valid">Сохранить</button>
+      <button class="control" (click)="goBack()">Назад</button>
+      <button class="control" type="submit" (click)="save()" [disabled]="!employeeForm.valid">Сохранить</button>
     </div>
 
   </form>

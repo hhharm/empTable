@@ -19,9 +19,17 @@ th {
   text-align: center;
   border-left: 2px solid rgb(162, 161, 246);
   padding: 10px;
+  background-color: rgb(140, 140, 255);
 }
 tr a {
   text-decoration: none;
+}
+tr:nth-child(odd) {
+  background-color: rgb(220, 237, 248);/* фон нечетных строк */
+}
+
+ tr:nth-child(even) {
+  background-color: rgb(228, 242, 250);/* фон четных строк */
 }
 
 td {
@@ -37,7 +45,6 @@ table td:last-child {
 
 .table-fio {
   width: 40%;
-  font-size: 1.5em;
 }
 
 .table-position {

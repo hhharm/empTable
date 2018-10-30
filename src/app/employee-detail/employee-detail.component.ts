@@ -12,20 +12,19 @@ import { Employee } from '../employee'
 export class EmployeeDetailComponent implements OnInit {
   employee: Employee;
   positions: string[];
+  
+  minDate = new Date(1900, 1, 1);
+  maxDate = new Date(2006, 1, 1);
 
   constructor(private location: Location,
     private route: ActivatedRoute,
-    private employeeService: EmployeeService) { }
+    private employeeService: EmployeeService
+    ) { }
 
-    submitted = false;
-
-  onSubmit() { this.submitted = true; }
-
-  ngOnInit() {
+   ngOnInit() {
     this.getEmployee();
     this.getPositionsList();
   }
-
 
   getPositionsList(): void {
     this.employeeService.getPositionsList() 

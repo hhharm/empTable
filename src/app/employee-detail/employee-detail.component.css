@@ -34,11 +34,12 @@
 
 .img,
 .change_av {
-  width: 170px;
+  width: auto;
 }
 
 .img {
-  height: 120px;
+  width: 120px;
+  height: 250px;
   background-color: #9E9E9E;
   grid-area: avatar;
 }
@@ -51,14 +52,12 @@
 .info {
   padding: 10px;
   grid-area: info;
-}
-
-.detail {
-  font-size: 1.5em;
+  line-height: 2em;
 }
 
 .fullname {
   color: midnightblue;
+  width: 80%;
 }
 
 .cal_button {
@@ -69,10 +68,6 @@
 
 label {
   font-style: italic;
-}
-
-select {
-  background-color: none;
 }
 
 .comment {
@@ -98,8 +93,4 @@ select {
 
 .ng-invalid:not(form) {
   border-bottom: 2px solid red;
-}
-
-.ng-invalid:not(form)::after {
-  content: "Имя не может быть пустым";
 }
