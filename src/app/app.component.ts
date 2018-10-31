@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ModalService } from './modal.service'
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'table-of-workers';
+  constructor (private modalService: ModalService) {}
+
+  removeModal() {
+    this.modalService.destroy();
+  }
 }

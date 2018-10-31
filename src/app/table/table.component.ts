@@ -21,13 +21,15 @@ export class TableComponent implements OnInit {
   employees:Employee[];
 
   getEmployees() {
-    //QUESTION: what does the (employees => this.emploees = employees) mean?
-    //this is copy-paste from tour of heroes, but i don't get it :/
     this.employeeService.getEmployees()
       .subscribe(employees => this.employees = employees); 
   }
 
-  createEmployee() {    
+  createEmployee() {
+    if (this.employees.length == 20) {
+      alert("Нельзя создать сотрудника! Максимальное число сотрудников - двадцать");
+      return;
+    }
     this.modalService.init(PopUpComponent, null, {});
     this.employeeService.getEmployees()
       .subscribe(employees => this.employees = employees); 

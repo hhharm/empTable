@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalService } from '../modal.service';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service'
-import { Router } from '@angular/router';
 
-import { TableComponent } from '../table.component'
 import { TriggerService } from '../trigger.service'
 
 @Component({
@@ -14,10 +12,16 @@ import { TriggerService } from '../trigger.service'
 })
 export class PopUpComponent implements OnInit {
   positions: string[];
-  newEmployee: Employee;
-  
+
   minDate = new Date(1900, 1, 1);
   maxDate = new Date(2006, 1, 1);
+  employee:Employee;
+
+  name: string;
+  position: string;
+  status: string;
+  birthDate: Date;
+  comment: string;
 
 
   constructor(
@@ -26,25 +30,25 @@ export class PopUpComponent implements OnInit {
     private triggerService: TriggerService) { }
 
   ngOnInit() {
-    this.newEmployee = new Employee();
     this.getPositionsList();
   }
 
   getPositionsList(): void {
-    this.employeeService.getPositionsList() 
-    .subscribe(positions => this.positions = positions); 
+    this.employeeService.getPositionsList()
+      .subscribe(positions => this.positions = positions);
   }
 
-  public close() : void {
+  public close(): void {
     this.modalService.destroy();
   }
 
-  public save() : void {  
-    this.newEmployee.fullName = this.newEmployee.fullName.trim();
-    this.employeeService.addEmployee(this.newEmployee).subscribe(employee => this.newEmployee = employee);
+  public save(): void {
+    this.employee = new Employee(this.name.trim(),
+      this.position, this.birthDate,
+      this.status, this.comment
+    );
+    this.employeeService.addEmployee(this.employee).subscribe(emp => this.employee = emp);
     this.triggerService.update();
     this.modalService.destroy();
-    }
   }
-
 }

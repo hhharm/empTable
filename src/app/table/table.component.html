@@ -1,9 +1,5 @@
 <h1>Список сотрудников</h1>
-<button  class="control add_button" (click)="createEmployee()">Добавить</button>
-<div>
-  <!--- this should be right after button. It is needed because 'button' is float and therefore browser ingores it's size
-    when it depicts elements. There is 'clear: both' in this div and it helps. Magic :)-->
-</div>
+<main>
 <table class="comp" >
   <thead >
     <th class="table-fio">ФИО</th>
@@ -22,3 +18,5 @@
     <td class="table-status">{{employee.status}}</td>
   </tr>
 </table>
+<button  class="control add_button" (click)="createEmployee()">Добавить</button>
+</main>

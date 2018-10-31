@@ -7,17 +7,17 @@ export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const employees: Employee[] = [
       {id: 1, fullName: 'Звягенцева Юлия Андреевна', position: 'Повар', birthDate: new Date("06 Sept 1965"),
-      status: 'работает', commentary: '', photo: ''},
+      status: 'работает', commentary: ''},
       {id: 2, fullName: 'Иванов Пётр Васильевич', position: 'Разработчик', birthDate: new Date("01 Feb 1999"),
-    status: 'работает', commentary: '', photo: ''},
+    status: 'работает', commentary: ''},
   {id: 3, fullName: 'Иванова Софья Петровна', position: 'Уборщик', birthDate: new Date("02 Jan 1984"),
-status: 'уволен', commentary: '', photo: ''},
+status: 'уволен', commentary: ''},
 {id: 4, fullName: 'Невский Пётр Георгиевич', position: 'Промоутер', birthDate: new Date("29 Feb 2004"),
-status: 'уволен', commentary: '', photo: ''},
+status: 'уволен', commentary: ''},
 {id: 5, fullName: 'Созонов Иван Дмитриевич', position: 'Уборщик', birthDate: new Date("19 Apr 1972"),
-status: 'работает', commentary: 'любит леденцы', photo: ''},
+status: 'работает', commentary: 'любит леденцы'},
 {id: 6, fullName: 'Юдинцев Сергей Леонидович', position: 'Тестировщик', birthDate: new Date("09 Jan 1991"),
-status: 'работает', commentary: '', photo: ''}
+status: 'работает', commentary: ''}
     ];
 
     const positions  = ['Водитель', 'Разработчик', 'Повар', 'Тестировщик', 'Руководитель', 'Тестировщик', 'Уборщик', 

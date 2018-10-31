@@ -9,10 +9,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-areas:
-    "info info info avatar"
-    "info info info  avatar"
-    "info info info  avatar"
-    "info info info  chgb"
+    "info info info info"
+    "info info info info"
+    "info info info info"
+    "info info info info"
     "comm comm comm comm "
     "buttons buttons buttons buttons";
   overflow: hidden;
@@ -38,9 +38,6 @@
 }
 
 .img {
-  width: 120px;
-  height: 250px;
-  background-color: #9E9E9E;
   grid-area: avatar;
 }
 
