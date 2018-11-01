@@ -6,13 +6,12 @@
 }
 
 #modal-container {
-    position:  fixed;
-    top: 300px;
-    left: 50%;
-    min-width: 300px;
+    position: fixed;
+    min-width: 375px;
     max-width: 725px;
-    background: white;
-    margin-left: -187.5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
     text-align: center;
     box-shadow: 0px 0px 2px 1px black;
     z-index: 100;
@@ -20,7 +19,7 @@
 }
 
 #overlay {
-    position: absolute;
+    position: fixed;
     top: 0px;
     left:  0px;
     z-index:  99;
