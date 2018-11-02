@@ -5,6 +5,7 @@ import { EmployeeService } from '../employee.service'
 
 import { TriggerService } from '../trigger.service'
 
+import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 @Component({
   selector: 'app-pop-up',
   templateUrl: './pop-up.component.html',
@@ -27,10 +28,15 @@ export class PopUpComponent implements OnInit {
   constructor(
     private employeeService: EmployeeService,
     private modalService: ModalService,
-    private triggerService: TriggerService) { }
+    private triggerService: TriggerService,
+    private localeService: BsLocaleService) { }
+    
+    locale='ru';
+    
 
   ngOnInit() {
     this.getPositionsList();
+    this.localeService.use(this.locale);
   }
 
   getPositionsList(): void {

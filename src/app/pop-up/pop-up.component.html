@@ -23,8 +23,8 @@
 
   <div class="detail">
     <label>Дата рождения<span class="star">*</span>:  </label>
-    <input required class="calendar" [minDate]="minDate" [maxDate]="maxDate" autocomplete=off 
-        bsDatepicker [bsConfig]="{ dateInputFormat: 'DD.MM.YYYY', showWeekNumbers: false, 
+    <input required class="form-control calendar" [minDate]="minDate" [maxDate]="maxDate" autocomplete=off 
+        bsDatepicker [bsConfig]="{ showWeekNumbers: false, 
            containerClass: 'theme-dark-blue' }"
       [(ngModel)]="birthDate" name="calendar">
   </div>

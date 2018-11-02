@@ -8,6 +8,7 @@ import { ModalService } from '../modal.service';
 
 import { TriggerService } from '../trigger.service'
 
+
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',

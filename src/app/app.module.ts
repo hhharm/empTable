@@ -13,7 +13,11 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { FormsModule } from '@angular/forms';
 
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { DatepickerModule, BsDatepickerModule, BsLocaleService  } from 'ngx-bootstrap/datepicker';
+import { ruLocale } from 'ngx-bootstrap/locale';
+import { defineLocale } from 'ngx-bootstrap/chronos';
+defineLocale('ru', ruLocale);
+
 import { PopUpComponent } from './pop-up/pop-up.component';
 
 @NgModule({
@@ -31,12 +35,13 @@ import { PopUpComponent } from './pop-up/pop-up.component';
     ),
     AppRoutingModule,
     FormsModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    DatepickerModule.forRoot() 
   ],
   entryComponents:[
     PopUpComponent
   ],
-  providers: [],
+  providers: [BsLocaleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

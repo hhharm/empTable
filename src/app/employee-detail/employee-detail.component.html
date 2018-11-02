@@ -21,12 +21,11 @@
       </div>
       <div class="detail">
         <label>Дата рождения:</label>
-          <input required class="calendar" [minDate]="minDate" [maxDate]="maxDate" autocomplete=off
-           bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', showWeekNumbers: false, 
-           containerClass: 'theme-dark-blue' }"
-            [(ngModel)]="employee.birthDate" value='{{employee.birthDate | date: "dd.MM.yyyy"}}' name="calendar">
+        <input required class="form-control calendar" [minDate]="minDate" [maxDate]="maxDate" autocomplete=off
+        bsDatepicker [bsConfig]="{ showWeekNumbers: false, 
+        containerClass: 'theme-dark-blue' }"
+        [(ngModel)]="employee.birthDate" value='{{employee.birthDate | date: "dd.MM.yyyy"}}' name="calendar">
       </div>
-
     </div>
     <div class="comment">
       <label>Комментарий: </label>

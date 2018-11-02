@@ -269,18 +269,6 @@ MIT
 @angular/core
 MIT
 
-@angular/common
-MIT
-
-@angular/platform-browser
-MIT
-
-@angular/router
-MIT
-
-@angular/forms
-MIT
-
 ngx-bootstrap/chronos
 The MIT License (MIT)
 
@@ -310,6 +298,18 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
+
+@angular/common
+MIT
+
+@angular/platform-browser
+MIT
+
+@angular/router
+MIT
+
+@angular/forms
+MIT
 
 ngx-bootstrap/utils
 
