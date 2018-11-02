@@ -2,12 +2,12 @@
   <h4>Введите данные нового сотрудника</h4>
   <div class="detail">
     <label>Полное имя<span class="star">*</span>: </label>
-    <input required autocomplete=off name="name" [(ngModel)]="name" placeholder="Иванов Иван Иванович">
+    <input class="user_input" required autocomplete=off name="name" [(ngModel)]="name" placeholder="Иванов Иван Иванович">
   </div>
 
   <div class="detail">
     <label>Статус<span class="star">*</span>: </label>
-    <select required name="status" [(ngModel)]="status" name="positions">
+    <select class="user_input" required name="status" [(ngModel)]="status" name="positions">
       <option selected>работает</option>
       <option>уволен</option>
     </select>
@@ -15,7 +15,7 @@
 
   <div class="detail">
     <label>Должность<span class="star">*</span>: </label>
-    <select required [(ngModel)]="position" name="position">
+    <select class="user_input" required [(ngModel)]="position" name="position">
       <option *ngFor="let position of positions" [value]="position">{{position}}</option>
     </select>
   </div>
@@ -23,13 +23,13 @@
 
   <div class="detail">
     <label>Дата рождения<span class="star">*</span>:  </label>
-    <input required class="form-control calendar" [minDate]="minDate" [maxDate]="maxDate" autocomplete=off 
-        bsDatepicker [bsConfig]="{ showWeekNumbers: false, 
-           containerClass: 'theme-dark-blue' }"
+    <input class="user_input" required class="form-control calendar" [minDate]="minDate" [maxDate]="maxDate" autocomplete=off 
+        bsDatepicker readonly [bsConfig]="{ showWeekNumbers: false, 
+           containerClass: 'theme-dark-blue', dateInputFormat: 'DD.MM.YYYY' }"
       [(ngModel)]="birthDate" name="calendar">
   </div>
   
-  <div class="detail">
+  <div>
     <label>Комментарий: </label>
     <textarea [(ngModel)]="comment" placeholder="Дополнительные сведения о работнике..." name="comment">
         </textarea>

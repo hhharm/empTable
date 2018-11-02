@@ -4,27 +4,27 @@
     <div class="info">
       <div class="detail">
         <label>Имя: </label>
-        <input required autocomplete=off class="fullname" name="name" [(ngModel)]="employee.fullName" placeholder="Имя сотрудника">
+        <input class="user_input fullname" required autocomplete=off  name="name" [(ngModel)]="employee.fullName" placeholder="Имя сотрудника">
       </div>
       <div class="detail">
         <label>Статус: </label>
-        <select required [value]="employee.status" name="status" [(ngModel)]="employee.status" name="positions">
+        <select class="user_input" required [value]="employee.status" name="status" [(ngModel)]="employee.status">
           <option>работает</option>
           <option>уволен</option>
         </select>
       </div>
       <div class="detail">
         <label>Должность: </label>
-        <select required [(ngModel)]="employee.position" value="employee.position" name="position">
+        <select class="user_input" required [(ngModel)]="employee.position" value="employee.position" name="position">
           <option *ngFor="let position of positions" [value]="position">{{position}}</option>
         </select>
       </div>
       <div class="detail">
         <label>Дата рождения:</label>
-        <input required class="form-control calendar" [minDate]="minDate" [maxDate]="maxDate" autocomplete=off
-        bsDatepicker [bsConfig]="{ showWeekNumbers: false, 
-        containerClass: 'theme-dark-blue' }"
-        [(ngModel)]="employee.birthDate" value='{{employee.birthDate | date: "dd.MM.yyyy"}}' name="calendar">
+        <input class="user_input" required class="form-control calendar" [minDate]="minDate" [maxDate]="maxDate" autocomplete=off
+        bsDatepicker readonly [bsConfig]="{ showWeekNumbers: false, 
+        containerClass: 'theme-dark-blue', dateInputFormat: 'DD.MM.YYYY' }"
+        [(ngModel)]="employee.birthDate" name="calendar">
       </div>
     </div>
     <div class="comment">

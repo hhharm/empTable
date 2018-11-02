@@ -1,18 +1,14 @@
-<h1>Список сотрудников</h1>
 <main>
 <table class="comp" >
+  <caption>Список сотрудников</caption>
   <thead >
-    <th class="table-fio">ФИО</th>
+    <th class="table-fio">Фамилия Имя Отчество</th>
     <th class="table-position">Должность</th>
     <th class="table-bdate">Дата рождения</th>
     <th class="table-status">Статус</th>
   </thead>
-  <tr *ngFor="let employee of employees">
-    <td class="table-fio">
-      <a routerLink="/detail/{{employee.id}}">
-        {{employee.fullName}}
-      </a>
-    </td>
+  <tr *ngFor="let employee of employees" routerLink="/detail/{{employee.id}}">
+    <td class="table-fio">{{employee.fullName}}</td>
     <td class="table-position">{{employee.position}}</td>
     <td class="table-bdate">{{employee.birthDate | date:"dd.MM.yyyy"}}</td>
     <td class="table-status">{{employee.status}}</td>

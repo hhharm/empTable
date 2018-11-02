@@ -6,23 +6,17 @@ import { Employee } from './employee';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const employees: Employee[] = [
-      {id: 1, fullName: 'Звягенцева Юлия Андреевна', position: 'Повар', birthDate: new Date("06 Sept 1965"),
-      status: 'работает', commentary: ''},
-      {id: 2, fullName: 'Иванов Пётр Васильевич', position: 'Разработчик', birthDate: new Date("01 Feb 1999"),
-    status: 'работает', commentary: ''},
-  {id: 3, fullName: 'Иванова Софья Петровна', position: 'Уборщик', birthDate: new Date("02 Jan 1984"),
-status: 'уволен', commentary: ''},
-{id: 4, fullName: 'Невский Пётр Георгиевич', position: 'Промоутер', birthDate: new Date("29 Feb 2004"),
-status: 'уволен', commentary: ''},
-{id: 5, fullName: 'Созонов Иван Дмитриевич', position: 'Уборщик', birthDate: new Date("19 Apr 1972"),
-status: 'работает', commentary: 'любит леденцы'},
-{id: 6, fullName: 'Юдинцев Сергей Леонидович', position: 'Тестировщик', birthDate: new Date("09 Jan 1991"),
-status: 'работает', commentary: ''}
+      new Employee(1, 'Звягенцева Юлия Андреевна', 'Повар', new Date("06 Sept 1965"), 'работает'),
+      new Employee(2, 'Иванов Пётр Васильевич', 'Разработчик', new Date("01 Feb 1999"), 'работает'),
+      new Employee(3, 'Иванова Софья Петровна', 'Уборщик', new Date("02 Jan 1984"), 'уволен'),
+      new Employee(4, 'Невский Пётр Георгиевич', 'Промоутер', new Date("29 Feb 2004"), 'уволен'),
+      new Employee(5, 'Созонов Иван Дмитриевич', 'Уборщик', new Date("19 Apr 1972"), 'работает', 'любит леденцы'),
+      new Employee(6, 'Юдинцев Сергей Леонидович', 'Тестировщик', new Date("09 Jan 1991"), 'работает')
     ];
 
-    const positions  = ['Водитель', 'Разработчик', 'Повар', 'Тестировщик', 'Руководитель', 'Тестировщик', 'Уборщик', 
-    'Работник цеха', 'Промоутер'];
-    return {employees, positions};
+    const positions = ['Водитель', 'Разработчик', 'Повар', 'Тестировщик', 'Руководитель', 'Тестировщик', 'Уборщик',
+      'Работник цеха', 'Промоутер'];
+    return { employees, positions };
   }
 
   // Overrides the genId method to ensure that an employee always has an id.

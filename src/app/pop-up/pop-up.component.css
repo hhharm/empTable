@@ -3,25 +3,42 @@
     text-align: left;
     line-height: 2em;
     padding: 15px;
-    background-color: rgb(239, 242, 251);
-    border: 3px solid rgba(31, 13, 189, 0.3);
+    border: 2px solid rgba(31, 13, 189, 0.3);
 }
 
 h4 {
     text-align: center;
+    font-weight: bold;
 }
 
 .notValid {
     font-size: 1em;
     padding-top: 10px;
     font-variant: small-caps;
-    color: rgb(255, 10, 10);
 }
 
-.star {
+.star, .notValid {
     color: rgb(255, 10, 10);
 }
 
 .buttons {
     margin: 10px 10px 0 0;
+}
+
+
+.detail {
+    display: flex;
+    margin: 3px;
+}
+
+.user_input {
+    flex: 2;
+}
+
+input, label, select {
+    margin: 5px;
+}
+
+textarea {
+    width: 100%;
 }

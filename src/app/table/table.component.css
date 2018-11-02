@@ -2,58 +2,63 @@
   margin: 0 1px;
   float: right;
 }
-
-.add_button+div {
-  clear: both;
-  width: 100%;
-  content: '';
-  display: block;
+table caption {
+  height: 2em;
+    font-family: 'Noto Serif', sans-serif;
+    font-size: 2em;
+    caption-side: top;
 }
 main {  
   width: 100%;
-  max-width: 1000px;
+  max-width: 1500px;
   margin:0 auto;
 }
 
+
 table {
+  table-layout: fixed;
   width: 100%;
   margin: 10px auto;
   border-collapse: collapse;
 }
 
-th {
-  text-align: center;
-  border-left: 2px solid rgb(162, 161, 246);
+th, td {
+  text-align: left;
   padding: 10px;
-  background-color: rgb(140, 140, 255);
-}
-
-tr a {
-  text-decoration: none;
-}
-
-tr:nth-child(odd) {
-  background-color: rgb(220, 237, 248);
-  /* фон нечетных строк */
-}
-
-tr:nth-child(even) {
-  background-color: rgb(228, 242, 250);
-  /* фон четных строк */
 }
 
 td {
-  border-left: 2px solid rgb(162, 161, 246);
-  border-top: 3px solid rgb(162, 161, 246);
-  padding: 0 10px;
+  border-top: 1px solid rgb(189, 237, 255);
 }
 
-table td:first-child,
-table td:last-child {
-  border-bottom-left-radius: 20px;
+tr:hover {
+  background-color: rgb(169, 199, 200);
+  cursor: pointer;
 }
 
 .table-bdate,
 .table-status {
-  width: 10%;
+  width: 15%;
 }
+
+thead {
+  background-color: rgba(194, 240, 255, 0.36);
+}
+
+/* resize */
+
+/*table th:hover  {
+  border-right: 3px dotted rgb(4, 4, 85)
+}
+th {
+  position: relative;
+  min-width: 25px;
+}
+table th .rz-handle {
+  width: 10px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: ew-resize !important;
+}*/

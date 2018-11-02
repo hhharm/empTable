@@ -49,7 +49,7 @@ export class PopUpComponent implements OnInit {
   }
 
   public save(): void {
-    this.employee = new Employee(this.name.trim(),
+    this.employee = new Employee(undefined, this.name.trim(),
       this.position, this.birthDate,
       this.status, this.comment
     );

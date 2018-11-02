@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 
 import { Employee } from './employee'
 import { Observable, of } from 'rxjs';
@@ -18,8 +18,8 @@ export class EmployeeService {
 
   //this url (as far as I understood) is always 'api/<name of variable>'. Variable is the constant that 
   //we wrote inside in-memory-data createDB() method
-  private tableUrl = 'api/employees';
-  private positionsUrl = 'api/positions';
+  private tableUrl = 'localhost:3000/employees';
+  private positionsUrl = 'localhost:3000/positions';
   /**
    * Handle Http operation that failed.
    * Let the app continue.
@@ -32,6 +32,12 @@ export class EmployeeService {
       console.error(error); // log to console instead
       return of(result as T);
     };
+  }
+
+  testServer():Observable<string> {
+    var req = new HttpRequest("GET","employees")
+    this.http.request
+    return this.http.get<string>("localhost:3000");
   }
 
    getPositionsList(): Observable<string[]> {

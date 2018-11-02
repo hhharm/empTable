@@ -6,6 +6,8 @@
 }
 
 .container {
+  padding: 10px;
+  border: 2px solid rgb(173, 173, 250); 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-areas:
@@ -76,7 +78,7 @@ label {
 .comment_text textarea {
   height: 3em;
   resize: vertical;
-  width: 90%;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -88,3 +90,20 @@ label {
   margin: 10px 0 0 5px;
 }
 
+
+.detail {
+  display: flex;
+  margin: 3px;
+}
+
+.user_input {
+  flex: 2;
+}
+
+input, label, select {
+  margin: 5px;
+}
+
+textarea {
+  width: 100%;
+}
