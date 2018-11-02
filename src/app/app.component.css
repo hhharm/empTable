@@ -29,21 +29,11 @@
     height: 100%;
 }
 
-/* footer - header */
+/* header */
 
-header, footer,  {
+header  {
     height: 3em;
-}
-
-.logo {
-    height: 2em;
-}
-
-header {
     border-bottom: 2px solid #daddfa;
-}
-
-header, footer {
     vertical-align: middle;
     text-align: right;
     padding: 10px;
@@ -51,10 +41,7 @@ header, footer {
     width: 100%;
     box-sizing: border-box;
 }
-footer {
-    border-top: 2px solid #daddfa;
-    position: absolute;
-    bottom: 0;
-}
 
-/*inputs, etc */
+.logo {
+    height: 2em;
+}

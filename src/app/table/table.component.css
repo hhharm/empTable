@@ -3,7 +3,6 @@
   float: right;
 }
 table caption {
-  height: 2em;
     font-family: 'Noto Serif', sans-serif;
     font-size: 2em;
     caption-side: top;
@@ -14,10 +13,10 @@ main {
   margin:0 auto;
 }
 
-
 table {
-  table-layout: fixed;
+  /*table-layout: fixed;*/
   width: 100%;
+  overflow: hidden;
   margin: 10px auto;
   border-collapse: collapse;
 }
@@ -38,27 +37,9 @@ tr:hover {
 
 .table-bdate,
 .table-status {
-  width: 15%;
+  min-width: 15%;
 }
 
 thead {
   background-color: rgba(194, 240, 255, 0.36);
 }
-
-/* resize */
-
-/*table th:hover  {
-  border-right: 3px dotted rgb(4, 4, 85)
-}
-th {
-  position: relative;
-  min-width: 25px;
-}
-table th .rz-handle {
-  width: 10px;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  cursor: ew-resize !important;
-}*/
