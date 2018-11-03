@@ -1,18 +1,44 @@
-.add_button {
-  margin: 0 1px;
+
+main {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 10px 5px;
+}
+
+
+/* header */
+header {
+  height: 3em;
+  background: #1a7a7d;
+  margin-bottom: 20px;
+}
+.pageName {
+  font-size: 2em;
+  color: rgb(206, 234, 255);
+}
+/* add button */
+button.add_button {
+  margin: 0.5em 10px;
   float: right;
 }
+
+.add_button:hover {
+  background-color: rgb(115, 161, 115);
+  border-color: rgb(115, 161, 115);
+}
+.plus {
+  color: rgb(0, 209, 63);
+  font-weight: bold;
+}
+
+/* table */
+
 table caption {
     font-family: 'Noto Serif', sans-serif;
     font-size: 2em;
     caption-side: top;
 }
-main {  
-  width: 100%;
-  max-width: 1500px;
-  margin:0 auto;
-}
-
 table {
   /*table-layout: fixed;*/
   width: 100%;
@@ -42,4 +68,29 @@ tr:hover {
 
 thead {
   background-color: rgba(194, 240, 255, 0.36);
+}
+
+/* paging */
+.numberShown {
+  font-weight: bold;
+}
+.pagePicker {
+  float: right;
+}
+
+.pageNumber {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  text-align: center;
+  cursor: pointer;
+}
+
+.pageNumber.notcurrent:hover {
+  background-color: #e9faff;
+}
+
+.current {
+  background-color: #1a7a7d;
+  color: white;
 }

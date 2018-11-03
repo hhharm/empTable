@@ -16,6 +16,7 @@ export class TriggerService {
 
   update() {
     this.comp.getEmployees();
+    this.comp.initializePage();
   }
 
 }

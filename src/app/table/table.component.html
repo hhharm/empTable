@@ -1,18 +1,37 @@
 <main>
+  <header><span class="pageName">Список сотрудников </span>
+      <button class="control add_button" (click)="createEmployee()"> <span class="plus">+</span> Добавить</button></header>
+      
+      <div class="paging">
+          Показывать <select (change)="initializePage()" class="user_input" [(ngModel)]="employeePerPage" [value]="5">
+              <option>5</option>
+              <option>10</option>
+              <option>20</option>
+              <option>50</option>              
+            </select> записей на странице
+        </div>
 <table class="comp" >
-  <caption>Список сотрудников</caption>
   <thead >
     <th class="table-fio">Фамилия Имя Отчество</th>
     <th class="table-position">Должность</th>
     <th class="table-bdate">Дата рождения</th>
     <th class="table-status">Статус</th>
   </thead>
-  <tr *ngFor="let employee of employees" routerLink="/detail/{{employee.id}}">
+  <tr *ngFor="let employee of pageEmployees" routerLink="/detail/{{employee.id}}">
     <td class="table-fio">{{employee.fullName}}</td>
     <td class="table-position">{{employee.position}}</td>
     <td class="table-bdate">{{employee.birthDate | date:"dd.MM.yyyy"}}</td>
     <td class="table-status">{{employee.status}}</td>
   </tr>
 </table>
-<button  class="control add_button" (click)="createEmployee()">Добавить</button>
+<div class="paging">
+  Сотрудников показано: <span class="numberShown">{{pageEmployees.length}}</span> из <span class="numberShown">{{employees.length}}</span>
+  <span class="pagePicker" >
+    <div *ngIf="isDisplayPrev" (click)="prev()" 
+    class="pageNumber notcurrent">{{pageNumber - 1}}</div>
+    <div *ngIf="isDisplayCur"   class="pageNumber current">{{pageNumber}}</div>    
+    <div  *ngIf="isDisplayNext" (click)="next()" 
+    class="pageNumber notcurrent">{{pageNumber + 1}}</div>
+  </span>
+  </div>
 </main>
