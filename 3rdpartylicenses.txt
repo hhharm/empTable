@@ -343,9 +343,9 @@ ngx-bootstrap/utils
 
 ngx-bootstrap/mini-ngrx
 
-ngx-bootstrap/loader
-
 ngx-bootstrap/positioning
+
+ngx-bootstrap/loader
 
 angular-in-memory-web-api
 MIT
