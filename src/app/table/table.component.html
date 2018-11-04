@@ -3,12 +3,25 @@
       <button class="control add_button" (click)="createEmployee()"> <span class="plus">+</span> Добавить</button></header>
       
       <div class="paging">
+        <span>
           Показывать <select (change)="initializePage()" class="user_input" [(ngModel)]="employeePerPage" [value]="5">
               <option>5</option>
               <option>10</option>
               <option>20</option>
               <option>50</option>              
             </select> записей на странице
+          </span>
+          <span class="lineHeight">
+            <img 
+            onclick="var s=document.getElementsByTagName('td'); for(i=0;i<s.length;i++){s[i].setAttribute('style','padding:20px 10px');}"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAAB4AQMAAAAaDYhyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAGUExURQCi6P///7z1OvwAAAAqSURBVEjHY/iPDj4wjArBhf4xIAP2oS80GrWjCXM0YY4KjSbM0YQ5koQAfL2VdwZpfAcAAAAASUVORK5CYII=">
+            <img 
+            onclick="var s=document.getElementsByTagName('td'); for(i=0;i<s.length;i++){s[i].setAttribute('style','padding:10px');}"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAAB4AQMAAAAaDYhyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAGUExURQCi6P///7z1OvwAAAAqSURBVEjHY/iPDj4wjArBhf4xIAP2ISY0Go+jKWc05YymnNHENCo0woUASbWxT9886fcAAAAASUVORK5CYII=">
+            <img 
+            onclick="var s=document.getElementsByTagName('td'); for(i=0;i<s.length;i++){s[i].setAttribute('style','padding:0px 10px');}"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAAB4AQMAAAAaDYhyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAGUExURQCi6P///7z1OvwAAAAqSURBVEjHY/iPDj4wjArBhf4xIAP2oS80GrWjUTsataPxOBq1o7E9koQA4t0KPyYVULUAAAAASUVORK5CYII=">
+          </span>
         </div>
 <table class="comp" >
   <thead >

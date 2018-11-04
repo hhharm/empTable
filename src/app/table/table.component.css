@@ -94,3 +94,12 @@ thead {
   background-color: #1a7a7d;
   color: white;
 }
+
+/* line height control */
+.lineHeight {
+  float: right;
+}
+.lineHeight img {
+  height: 1.5em;
+  cursor: pointer;
+}
