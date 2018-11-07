@@ -51,7 +51,9 @@ export class EmployeeDetailComponent implements OnInit {
 
   save(): void {
     this.employeeService.updateEmployee(this.employee)
-      .subscribe(() => this.goBack());
+      .subscribe(employee => this.employee = employee,
+        error => console.log("Error: ", error),
+         () => this.goBack());
   }
 
   private fixDate(): void {

@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Employee } from './employee'
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({
+     'Content-Type': 'application/json'
+   })
 };
 
 @Injectable({
@@ -18,8 +20,9 @@ export class EmployeeService {
 
   //this url (as far as I understood) is always 'api/<name of variable>'. Variable is the constant that 
   //we wrote inside in-memory-data createDB() method
-  private tableUrl = 'localhost:3000/employees';
-  private positionsUrl = 'localhost:3000/positions';
+  private tableUrl = 'http://192.168.1.68:5000/employees';
+  private positionsUrl = 'http://192.168.1.68:5000/positions';
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.
@@ -28,16 +31,9 @@ export class EmployeeService {
    */
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-
       console.error(error); // log to console instead
       return of(result as T);
     };
-  }
-
-  testServer():Observable<string> {
-    var req = new HttpRequest("GET","employees")
-    this.http.request
-    return this.http.get<string>("localhost:3000");
   }
 
    getPositionsList(): Observable<string[]> {
@@ -49,9 +45,9 @@ export class EmployeeService {
 
    getEmployees(): Observable<Employee[]> {
     return this.http.get<Employee[]>(this.tableUrl)
-      .pipe(
-        catchError(this.handleError('getEmployees', []))
-      );
+    .pipe(
+      catchError(this.handleError('getEmployees', []))
+    );
   }
 
    getEmployee(id: number): Observable<Employee> {
@@ -63,7 +59,8 @@ export class EmployeeService {
   }
 
   updateEmployee (employee: Employee): Observable<Employee> {
-    return this.http.put(this.tableUrl, employee, httpOptions).pipe(
+    const url = `${this.tableUrl}/${employee.id}`;
+    return this.http.put(url, employee, httpOptions).pipe(
       catchError(this.handleError<any>('updateEmployee'))
     );
   }

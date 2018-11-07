@@ -23,13 +23,13 @@ export class TableComponent implements OnInit {
   isDisplayPrev: boolean;
   isDisplayNext: boolean;
   isDisplayCur: boolean;
-
+  padding: "10px 10px";
 
   constructor(private employeeService: EmployeeService,
     private modalService: ModalService,
     private triggerService: TriggerService) {
     this.pageNumber = 1;
-    this.employeePerPage = 5;
+    this.employeePerPage = 20;
     this.isDisplayPrev = false;
     this.isDisplayNext = false;
     this.isDisplayCur = false;
@@ -44,6 +44,16 @@ export class TableComponent implements OnInit {
     this.pageNumber++;
     this.initializePage();
   }
+
+  changeNumPerPage() {
+    this.pageNumber = 1;
+    this.initializePage();
+  }
+
+  changePadding(padding) {
+    this.padding = padding;
+  }
+
   initializePage() {
     this.isDisplayNext = true;
     this.isDisplayPrev = true;
@@ -54,7 +64,7 @@ export class TableComponent implements OnInit {
     }
     let endIndex = this.employeePerPage * this.pageNumber;
 
-    if (endIndex > this.employees.length) {
+    if (endIndex >= this.employees.length) {
       endIndex = this.employees.length;
       this.isDisplayNext = false;
     }
@@ -72,13 +82,7 @@ export class TableComponent implements OnInit {
   }
 
   createEmployee() {
-    if (this.employees.length == 20) {
-      alert("Нельзя создать сотрудника! Максимальное число сотрудников - двадцать");
-      return;
-    }
     this.modalService.init(PopUpComponent, null, {});
-    this.employeeService.getEmployees()
-      .subscribe(employees => this.employees = employees);
   }
 
   ngOnInit() {

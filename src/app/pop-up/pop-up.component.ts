@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalService } from '../modal.service';
 import { Employee } from '../employee';
+import { ModalService } from '../modal.service';
 import { EmployeeService } from '../employee.service'
-
 import { TriggerService } from '../trigger.service'
 
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
+
 @Component({
   selector: 'app-pop-up',
   templateUrl: './pop-up.component.html',
@@ -16,23 +16,21 @@ export class PopUpComponent implements OnInit {
 
   minDate = new Date(1900, 1, 1);
   maxDate = new Date(2006, 1, 1);
-  employee:Employee;
+  employee: Employee;
 
   name: string;
   position: string;
   status: string;
   birthDate: Date;
   comment: string;
-
+  locale;
 
   constructor(
     private employeeService: EmployeeService,
     private modalService: ModalService,
     private triggerService: TriggerService,
-    private localeService: BsLocaleService) { }
-    
-    locale='ru';
-    
+    private localeService: BsLocaleService) {this.locale = 'ru'; }
+
 
   ngOnInit() {
     this.getPositionsList();
@@ -47,14 +45,19 @@ export class PopUpComponent implements OnInit {
   public close(): void {
     this.modalService.destroy();
   }
+  private onComplete () {
+    this.triggerService.update(this.employee);
+    this.modalService.destroy();
+  }
 
   public save(): void {
     this.employee = new Employee(undefined, this.name.trim(),
       this.position, this.birthDate,
       this.status, this.comment
     );
-    this.employeeService.addEmployee(this.employee).subscribe(emp => this.employee = emp);
-    this.triggerService.update();
-    this.modalService.destroy();
+    this.employeeService.addEmployee(this.employee).subscribe(
+      emp => this.employee = emp,
+      error => console.log(error + " in addEmployee()"),
+      () => this.onComplete());
   }
 }
