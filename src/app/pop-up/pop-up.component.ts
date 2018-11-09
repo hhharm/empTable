@@ -24,12 +24,13 @@ export class PopUpComponent implements OnInit {
   birthDate: Date;
   comment: string;
   locale;
+  fileToUpload: File;
 
   constructor(
     private employeeService: EmployeeService,
     private modalService: ModalService,
     private triggerService: TriggerService,
-    private localeService: BsLocaleService) {this.locale = 'ru'; }
+    private localeService: BsLocaleService) { this.locale = 'ru'; }
 
 
   ngOnInit() {
@@ -45,9 +46,13 @@ export class PopUpComponent implements OnInit {
   public close(): void {
     this.modalService.destroy();
   }
-  private onComplete () {
+  private onComplete() {
     this.triggerService.update(this.employee);
     this.modalService.destroy();
+  }
+
+  handleFileInput(file: FileList) {
+    this.fileToUpload = file.item(0);
   }
 
   public save(): void {
@@ -58,6 +63,12 @@ export class PopUpComponent implements OnInit {
     this.employeeService.addEmployee(this.employee).subscribe(
       emp => this.employee = emp,
       error => console.log(error + " in addEmployee()"),
-      () => this.onComplete());
+      () => {
+        if (this.fileToUpload) {
+          this.employeeService.uploadEmployeePhoto(this.employee.id, this.fileToUpload)
+            .subscribe(data => { });
+        }
+        this.onComplete();
+      });
   }
 }

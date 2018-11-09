@@ -16,12 +16,13 @@ const httpOptions = {
 })
 export class EmployeeService {
 
+
   constructor(private http: HttpClient) { }
 
   //this url (as far as I understood) is always 'api/<name of variable>'. Variable is the constant that 
   //we wrote inside in-memory-data createDB() method
-  private tableUrl = 'http://192.168.1.68:5000/employees';
-  private positionsUrl = 'http://192.168.1.68:5000/positions';
+  private tableUrl = 'http://192.168.1.66:5000/employees';
+  private positionsUrl = 'http://192.168.1.66:5000/positions';
 
   /**
    * Handle Http operation that failed.
@@ -34,6 +35,28 @@ export class EmployeeService {
       console.error(error); // log to console instead
       return of(result as T);
     };
+  }
+
+  updateEmployee (employee: Employee): Observable<Employee> {
+    const url = `${this.tableUrl}/${employee.id}`;
+    return this.http.put(url, employee, httpOptions).pipe(
+      catchError(this.handleError<any>('updateEmployee'))
+    );
+  }
+
+  addEmployee (employee: Employee): Observable<Employee> {
+    return this.http.post<Employee>(this.tableUrl, employee, httpOptions).pipe(      
+      catchError(this.handleError<Employee>('addEmployee'))
+    );
+  }
+
+  uploadEmployeePhoto(id: number, fileToUpload: File): Observable<any> {
+    const url=`${this.tableUrl}/images/${id}`;
+    //great thing about FormData is that there is no need to set 'Content Type' manually
+    //btw it's content type is not 'image'. it's multiform or something
+    const fileData = new FormData();
+    fileData.append('photo',fileToUpload,fileToUpload.name);
+    return this.http.post(url, fileData);
   }
 
    getPositionsList(): Observable<string[]> {
@@ -57,17 +80,12 @@ export class EmployeeService {
         catchError(this.handleError<Employee>(`getEmployee id=${id}`))
       );
   }
-
-  updateEmployee (employee: Employee): Observable<Employee> {
-    const url = `${this.tableUrl}/${employee.id}`;
-    return this.http.put(url, employee, httpOptions).pipe(
-      catchError(this.handleError<any>('updateEmployee'))
-    );
-  }
-
-  addEmployee (employee: Employee): Observable<Employee> {
-    return this.http.post<Employee>(this.tableUrl, employee, httpOptions).pipe(      
-      catchError(this.handleError<Employee>('addEmployee'))
+  
+  getEmployeePhoto(id: number): Observable<Blob> {
+    const url = `${this.tableUrl}/images/${id}`;
+    return this.http.get(url, { responseType: 'blob' })
+    .pipe(
+        catchError(this.handleError<Blob>(`getEmployeePhoto id=${id}`))
     );
   }
 }

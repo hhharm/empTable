@@ -29,6 +29,11 @@
       [(ngModel)]="birthDate" name="calendar">
   </div>
   
+  <div class="detail">
+    <label>Фотография:</label>
+
+  </div>
+  <input type="file"id="selectedFile" name="photo" accept="image/png,image/jpg,image/jpeg" (change)="handleFileInput($event.target.files)">
   <div>
     <label>Комментарий: </label>
     <textarea [(ngModel)]="comment" placeholder="Дополнительные сведения о работнике..." name="comment">

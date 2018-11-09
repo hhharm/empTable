@@ -35,7 +35,7 @@
   </tr>
 </table>
 <div class="paging">
-  Сотрудников показано: <span class="numberShown">{{pageEmployees.length}}</span> из <span class="numberShown">{{employees.length}}</span>
+  Сотрудников показано: <span class="numberShown">{{pageEmployees?.length}}</span> из <span class="numberShown">{{employees?.length}}</span>
   <span class="pagePicker" >
     <div *ngIf="isDisplayPrev" (click)="prev()" 
     class="pageNumber notcurrent">{{pageNumber - 1}}</div>

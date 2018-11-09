@@ -1,10 +1,21 @@
 <h1>Карточка сотрудника</h1>
 <div class="comp">
-  <form #employeeForm="ngForm" class="container">
+  <form #employeeForm="ngForm" class="container" *ngIf="employee">
+    <div class="img-container">
+        <img class="img" [src]="imageUrl" alt="Фото сотрудника">
+    </div>
+    <div class="change_av">
+      <input type="file"id="selectedFile" style="display: none;"
+       name="photo" class="control" #Image
+        accept="image/png,image/jpg,image/jpeg" (change)="handleFileInput($event.target.files)">
+        <input type="button" class="control"
+         value="Выбрать фото..." onclick="document.getElementById('selectedFile').click();" />
+      </div>
     <div class="info">
       <div class="detail">
         <label>Имя: </label>
-        <input class="user_input fullname" required autocomplete=off  name="name" [(ngModel)]="employee.fullName" placeholder="Имя сотрудника">
+        <input class="user_input fullname" required autocomplete=off name="name" [(ngModel)]="employee.fullName"
+          placeholder="Имя сотрудника">
       </div>
       <div class="detail">
         <label>Статус: </label>
@@ -21,10 +32,10 @@
       </div>
       <div class="detail">
         <label>Дата рождения:</label>
-        <input class="user_input" required class="form-control calendar" [minDate]="minDate" [maxDate]="maxDate" autocomplete=off
-        bsDatepicker readonly [bsConfig]="{ showWeekNumbers: false, 
+        <input class="user_input" required class="form-control calendar" [minDate]="minDate" [maxDate]="maxDate"
+          autocomplete=off bsDatepicker readonly [bsConfig]="{ showWeekNumbers: false, 
         containerClass: 'theme-dark-blue', dateInputFormat: 'DD.MM.YYYY' }"
-        [(ngModel)]="employee.birthDate" name="calendar">
+          [(ngModel)]="employee.birthDate" name="calendar">
       </div>
     </div>
     <div class="comment">
