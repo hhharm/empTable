@@ -19,10 +19,11 @@ export class EmployeeService {
 
   constructor(private http: HttpClient) { }
 
-  //this url (as far as I understood) is always 'api/<name of variable>'. Variable is the constant that 
-  //we wrote inside in-memory-data createDB() method
-  private tableUrl = 'https://desolate-springs-15165.herokuapp.com/employees';
-  private positionsUrl = 'https://desolate-springs-15165.herokuapp.com/positions';
+  // private tableUrl = 'https://desolate-springs-15165.herokuapp.com/employees';
+  // private positionsUrl = 'https://desolate-springs-15165.herokuapp.com/positions';
+
+  private tableUrl = 'http://localhost:5000/employees';
+  private positionsUrl = 'http://localhost:5000/positions';
 
   /**
    * Handle Http operation that failed.

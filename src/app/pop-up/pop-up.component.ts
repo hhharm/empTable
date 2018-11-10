@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from '../employee';
 import { ModalService } from '../modal.service';
 import { EmployeeService } from '../employee.service'
-import { TriggerService } from '../trigger.service'
+import { TableService } from '../table.service'
 
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 
@@ -29,7 +29,7 @@ export class PopUpComponent implements OnInit {
   constructor(
     private employeeService: EmployeeService,
     private modalService: ModalService,
-    private triggerService: TriggerService,
+    private tableService: TableService,
     private localeService: BsLocaleService) { this.locale = 'ru'; }
 
 
@@ -47,7 +47,7 @@ export class PopUpComponent implements OnInit {
     this.modalService.destroy();
   }
   private onComplete() {
-    this.triggerService.update(this.employee);
+    this.tableService.update(this.employee);
     this.modalService.destroy();
   }
 

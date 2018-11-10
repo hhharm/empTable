@@ -6,7 +6,7 @@ import { PopUpComponent } from '../pop-up/pop-up.component'
 
 import { ModalService } from '../modal.service';
 import { EmployeeService } from '../employee.service'
-import { TriggerService } from '../trigger.service'
+import { TableService } from '../table.service'
 
 
 @Component({
@@ -23,11 +23,11 @@ export class TableComponent implements OnInit {
   isDisplayPrev: boolean;
   isDisplayNext: boolean;
   isDisplayCur: boolean;
-  padding: "10px 10px";
+  padding: string;
 
   constructor(private employeeService: EmployeeService,
     private modalService: ModalService,
-    private triggerService: TriggerService) {
+    private tableService: TableService) {
     this.pageNumber = 1;
     this.employeePerPage = 20;
     this.isDisplayPrev = false;
@@ -51,27 +51,7 @@ export class TableComponent implements OnInit {
   }
 
   changePadding(padding) {
-    this.padding = padding;
-  }
-
-  initializePage() {
-    this.isDisplayNext = true;
-    this.isDisplayPrev = true;
-    this.isDisplayCur = true;
-    let startIndex = this.employeePerPage * (this.pageNumber - 1);
-    if (startIndex === 0) {
-      this.isDisplayPrev = false;
-    }
-    let endIndex = this.employeePerPage * this.pageNumber;
-
-    if (endIndex >= this.employees.length) {
-      endIndex = this.employees.length;
-      this.isDisplayNext = false;
-    }
-    this.pageEmployees = this.employees.slice(startIndex, endIndex);
-    if (startIndex === 0 && endIndex === this.employees.length) {
-      this.isDisplayCur = false;
-    }
+    this.tableService.setPadding(padding);
   }
 
   getEmployees() {
@@ -81,12 +61,16 @@ export class TableComponent implements OnInit {
         () => this.initializePage());
   }
 
+  initializePage() {
+    this.tableService.initializePage();
+  }
+
   createEmployee() {
     this.modalService.init(PopUpComponent, null, {});
   }
 
   ngOnInit() {
     this.getEmployees();
-    this.triggerService.init(this);
+    this.tableService.init(this);
   }
 }
