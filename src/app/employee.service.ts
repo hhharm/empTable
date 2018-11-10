@@ -19,11 +19,11 @@ export class EmployeeService {
 
   constructor(private http: HttpClient) { }
 
-  // private tableUrl = 'https://desolate-springs-15165.herokuapp.com/employees';
-  // private positionsUrl = 'https://desolate-springs-15165.herokuapp.com/positions';
+  private tableUrl = 'https://desolate-springs-15165.herokuapp.com/employees';
+  private positionsUrl = 'https://desolate-springs-15165.herokuapp.com/positions';
 
-  private tableUrl = 'http://localhost:5000/employees';
-  private positionsUrl = 'http://localhost:5000/positions';
+  // private tableUrl = 'http://localhost:5000/employees';
+  // private positionsUrl = 'http://localhost:5000/positions';
 
   /**
    * Handle Http operation that failed.

@@ -9,6 +9,9 @@ import { Employee } from './employee';
 export class TableService {
   comp: TableComponent;
   padding: string = "10px";
+  sortApplied: boolean = false;
+  sortKey: string;
+  sortOrder: boolean;
   
   constructor() { }
 
@@ -20,6 +23,48 @@ export class TableService {
   setPadding(padding: string) {
     this.padding = padding;
     this.comp.padding = padding;
+  }
+
+  sortEmployees(key: string) {
+    if ((!this.sortApplied) || (this.sortKey != key)) {
+      this.sortOrder = true; //from small values to big values
+    } else {
+      this.sortOrder = !this.sortOrder;
+    }
+    this.sortKey = key;
+    this.sortApplied = true;
+    this.sort();
+  }
+
+  private sort() {    
+    let compare = function(a,b){
+      let res = 0;
+      let a_field, b_field;
+      if (this.sortKey === "birthDate") {
+        a_field = a[this.sortKey];
+        b_field = b[this.sortKey];
+      } else {
+        a_field = a[this.sortKey], b_field = b[this.sortKey];
+      }
+      if (a_field < b_field) {
+        res = -1;
+      } else if (a_field > b_field) {
+        res = 1;
+      }
+      return res;
+    };
+    let compareRev = function(a,b){
+      let res = 0;
+      if (a[this.sortKey] < b[this.sortKey]) {
+        res = -1;
+      } else if (a[this.sortKey] > b[this.sortKey]) {
+        res = 1;
+      }
+      return res * (-1);
+    };
+
+    let compareFunc = this.sortOrder? compare: compareRev;
+    this.comp.pageEmployees.sort(compareFunc.bind(this));
   }
   
 
@@ -40,6 +85,9 @@ export class TableService {
     this.comp.pageEmployees = this.comp.employees.slice(startIndex, endIndex);
     if (startIndex === 0 && endIndex === this.comp.employees.length) {
       this.comp.isDisplayCur = false;
+    }
+    if (this.sortApplied) {
+      this.sort();
     }
   }
 

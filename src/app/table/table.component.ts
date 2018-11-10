@@ -8,14 +8,12 @@ import { ModalService } from '../modal.service';
 import { EmployeeService } from '../employee.service'
 import { TableService } from '../table.service'
 
-
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-
   employeePerPage: number;
   employees: Employee[];
   pageNumber: number;
@@ -35,6 +33,9 @@ export class TableComponent implements OnInit {
     this.isDisplayCur = false;
   }
 
+  sort(key: string) {
+    this.tableService.sortEmployees(key);
+  }
   prev() {
     this.pageNumber--;
     this.initializePage();

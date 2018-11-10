@@ -22,10 +22,10 @@
         </div>
 <table class="comp" >
   <thead >
-    <th class="table-fio">Фамилия Имя Отчество</th>
-    <th class="table-position">Должность</th>
-    <th class="table-bdate">Дата рождения</th>
-    <th class="table-status">Статус</th>
+    <th class="table-fio" (click)="sort('fullName')">Фамилия Имя Отчество</th>
+    <th class="table-position" (click)="sort('position')">Должность</th>
+    <th class="table-bdate" (click)="sort('birthDate')">Дата рождения</th>
+    <th class="table-status" (click)="sort('status')">Статус</th>
   </thead>
   <tr *ngFor="let employee of pageEmployees" routerLink="/detail/{{employee.id}}">
     <td [ngStyle]="{'padding': padding }" class="table-fio">{{employee.fullName}}</td>
