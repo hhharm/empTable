@@ -1,5 +1,9 @@
 # TableOfWorkers
 
+This is a first thing I ever did in Angular :D 
+It took me about 2 weeks. It uses backend which is located at heroku so when you open site for the first time you need to wait for its content. There is not loading icon, it's extra simple. Table, sort, add and remove, view.
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
 
 ## Development server
